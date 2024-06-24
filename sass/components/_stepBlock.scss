@@ -1,0 +1,49 @@
+// step block
+
+.stepBlock {
+    display: flex;
+    width: 100%;
+    max-width: 323px;
+    height: 72px;
+    background: $color_bg_lightGrey;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+    margin-left: 12px;
+    position: relative;
+    padding-right: 15px;
+
+    span {
+        position: absolute;
+        top: 24px;
+        left: -12px;
+        color: $color_text_white;
+        background: $color_bg_Purple;
+        border-radius: 50%;
+        height: 24px;
+        width: 24px;
+        @include flex-center;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    i {
+        width: 74px;
+        @include flex-center;
+        color: $color_bg_GreyIcon;
+    }
+
+    h3 {
+        @include flex-center;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    &:hover ::before {
+        color: $color_bg_Purple;
+    }
+
+    &:hover {
+        box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
+    }
+
+}

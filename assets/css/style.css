@@ -1,0 +1,745 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300&family=Shrikhand&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  color: #101010;
+}
+
+.button {
+  background-image: linear-gradient(to right, #9356DC, #FF79DA 50%);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  transform: rotate(-90deg);
+  background-size: 200%;
+  border-radius: 25px;
+  position: absolute;
+  bottom: -60px;
+  padding: 30px 10px;
+  transition: background-position 0.25s;
+  cursor: pointer;
+  user-select: none;
+}
+.button p {
+  writing-mode: vertical-rl;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 24px;
+  font-size: 16px;
+}
+.button:hover {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.35);
+  background-position: right;
+}
+.button:active {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.heart {
+  width: 24px;
+  height: 24px;
+}
+.heart svg:hover {
+  transform: scale(1.1);
+}
+.heart input[type=checkbox] {
+  display: none;
+}
+.heart input[type=checkbox] + label {
+  height: 23px;
+  width: 24px;
+  position: relative;
+}
+.heart input[type=checkbox] + label svg:nth-child(1) {
+  z-index: 0;
+  position: absolute;
+  fill: url(#grad2);
+}
+.heart input[type=checkbox] + label svg:nth-child(2) {
+  z-index: 2;
+  position: absolute;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.heart input[type=checkbox] + label .drape {
+  z-index: 1;
+  position: absolute;
+  background-color: #ffffff;
+  height: 22px;
+  width: 22px;
+  transition: transform 0.5s ease;
+}
+.heart input[type=checkbox]:checked + label svg:nth-child(1) {
+  transform: scale(1.1);
+}
+.heart input[type=checkbox]:checked + label svg:nth-child(2) {
+  opacity: 0;
+}
+.heart input[type=checkbox]:checked + label svg:nth-child(2) + .drape {
+  transform: translateY(-24px);
+}
+
+.stepBlock {
+  display: flex;
+  width: 100%;
+  max-width: 323px;
+  height: 72px;
+  background: #F6F6F6;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+  margin-left: 12px;
+  position: relative;
+  padding-right: 15px;
+}
+.stepBlock span {
+  position: absolute;
+  top: 24px;
+  left: -12px;
+  color: #FFFFFF;
+  background: #9256DC;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+.stepBlock i {
+  width: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7E7E7E;
+}
+.stepBlock h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+}
+.stepBlock:hover ::before {
+  color: #9256DC;
+}
+.stepBlock:hover {
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.cardRestaurant {
+  max-width: 490px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 174px 77px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+}
+.cardRestaurant:hover {
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
+}
+.cardRestaurant .newRestaurant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 0;
+  top: 10px;
+  right: 10px;
+  background: #99E2D0;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  width: 80px;
+  height: 29px;
+}
+.cardRestaurant .newRestaurant p {
+  color: #008766;
+  font-weight: 500;
+  font-size: 14px;
+}
+.cardRestaurant img {
+  border-radius: 15px 15px 0 0;
+  height: 174px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 80%;
+}
+.cardRestaurant .cardRestaurant--objectPosition60 {
+  object-position: 50% 60%;
+}
+.cardRestaurant .cardRestaurant__content {
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0 0 15px 15px;
+}
+.cardRestaurant .cardRestaurant__content__partLeft {
+  padding: 15px 0 0 15px;
+}
+.cardRestaurant .cardRestaurant__content__partLeft h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.cardRestaurant .cardRestaurant__content__partLeft h3::first-letter {
+  text-transform: capitalize;
+}
+.cardRestaurant .cardRestaurant__content__partLeft p {
+  font-size: 17px;
+  font-weight: 300;
+}
+.cardRestaurant .cardRestaurant__content__partRight {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.cardRestaurant a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.menu_body_container_body-starters-dishes-desserts fieldset {
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 20px;
+  padding-bottom: 10px;
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  max-width: 634px;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset legend {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 24px;
+  position: relative;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset legend::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  height: 0.2rem;
+  width: 2.5rem;
+  background-color: #99E2D0;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats {
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 20px;
+  width: 100%;
+  max-width: 634px;
+  user-select: none;
+  box-shadow: 0px 4.01149px 15.0431px 0px rgba(0, 0, 0, 0.1);
+  transform: translateX(-600px);
+  opacity: 0;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats:hover {
+  box-shadow: 0px 4.01149px 15.0431px 0px rgba(0, 0, 0, 0.2);
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats input[type=checkbox]:hover + label .part_right {
+  transform: translateX(-15px);
+  margin-left: 15px;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats input[type=checkbox]:checked + label .part_right {
+  transform: translateX(-100px);
+  margin-left: 100px;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats input[type=checkbox]:checked + label .part_right svg {
+  transform: rotate(0deg);
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats input[type=checkbox] {
+  display: none;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats label .part_left {
+  min-width: 0;
+  padding: 10px 0 10px 15px;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats label .part_left span {
+  display: block;
+  margin: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats label .part_left span:first-child {
+  font-size: 1em;
+  font-weight: 800;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats label .part_left span:last-child {
+  font-size: 0.9em;
+  font-weight: 300;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats label .part_right {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative;
+  transition: ease-in-out 0.3s;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats label .part_right span.price {
+  color: #353535;
+  font-weight: 700;
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats label .part_right .selected {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #99E2D0;
+  position: absolute;
+  border-radius: 0 20px 20px 0;
+  width: 100px;
+  height: 100%;
+  right: -100px;
+}
+.menu_body_container_body-starters-dishes-desserts fieldset .plats label .part_right .selected svg {
+  font-size: 2rem;
+  fill: #FFFFFF;
+  transform: rotate(180deg);
+  transition: ease-in-out 0.3s;
+}
+@keyframes anim-arrival-of-dishes {
+  0% {
+    animation-timing-function: ease-in-out;
+    opacity: 0;
+    transform: translateX(-600px);
+  }
+  90% {
+    animation-timing-function: ease-out;
+    transform: translateX(0);
+  }
+  95% {
+    animation-timing-function: ease-in;
+    transform: translateX(-8px);
+  }
+  100% {
+    animation-timing-function: ease-out;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.menu_body_container_body-starters-dishes-desserts #entrée_1 {
+  animation: anim-arrival-of-dishes 0.8s ease-in-out 0.1s 1 normal forwards;
+}
+.menu_body_container_body-starters-dishes-desserts #entrée_2 {
+  animation: anim-arrival-of-dishes 0.8s ease-in-out 0.2s 1 normal forwards;
+}
+.menu_body_container_body-starters-dishes-desserts #entrée_3 {
+  animation: anim-arrival-of-dishes 0.8s ease-in-out 0.3s 1 normal forwards;
+}
+.menu_body_container_body-starters-dishes-desserts #entrée_4 {
+  animation: anim-arrival-of-dishes 0.8s ease-in-out 0.4s 1 normal forwards;
+}
+.menu_body_container_body-starters-dishes-desserts #plat_1 {
+  animation: anim-arrival-of-dishes 0.8s ease-in-out 0.8s 1 normal forwards;
+}
+.menu_body_container_body-starters-dishes-desserts #plat_2 {
+  animation: anim-arrival-of-dishes 0.8s ease-in-out 0.9s 1 normal forwards;
+}
+.menu_body_container_body-starters-dishes-desserts #plat_3 {
+  animation: anim-arrival-of-dishes 0.8s ease-in-out 1s 1 normal forwards;
+}
+.menu_body_container_body-starters-dishes-desserts #dessert_1 {
+  animation: anim-arrival-of-dishes 0.8s ease-in-out 1.6s 1 normal forwards;
+}
+.menu_body_container_body-starters-dishes-desserts #dessert_2 {
+  animation: anim-arrival-of-dishes 0.8s ease-in-out 1.7s 1 normal forwards;
+}
+.menu_body_container_body-starters-dishes-desserts #dessert_3 {
+  animation: anim-arrival-of-dishes 0.8s ease-in-out 1.8s 1 normal forwards;
+}
+
+.body_container_honmepage {
+  overflow: hidden;
+  animation: hidden_body_container 3s linear forwards;
+}
+@keyframes hidden_body_container {
+  0% {
+    height: 0px;
+  }
+  90% {
+    height: 0px;
+  }
+  100% {
+    height: auto;
+  }
+}
+
+@keyframes itemAppear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes loader {
+  100% {
+    opacity: 0;
+    z-index: -10;
+  }
+}
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(0.5rem);
+  }
+  75% {
+    transform: translateY(-0.5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+.loader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  animation: loader 0.01s;
+  animation-delay: 1.75s;
+  animation-fill-mode: both;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader__item {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  animation: jump 1s;
+  animation-iteration-count: 1;
+}
+.loader__itemContainer {
+  display: flex;
+  width: 5rem;
+  justify-content: space-between;
+}
+.loader__item--1 {
+  background-color: #9356DC;
+}
+.loader__item--2 {
+  background-color: #FF79DA;
+  animation-delay: 0.25s;
+}
+.loader__item--3 {
+  background-color: #99E2D0;
+  animation-delay: 0.5s;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 63px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+.header nav {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+}
+
+.formLocation__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 17px;
+  background: #EAEAEA;
+}
+.formLocation__header label {
+  align-self: center;
+}
+.formLocation__header label i {
+  font-size: 16px;
+}
+.formLocation__header input[type=text] {
+  height: 50px;
+  width: 110px;
+  background: #EAEAEA;
+}
+.formLocation__header input[type=text]::placeholder {
+  font-size: 16px;
+}
+.formLocation__header input[type=text]:focus::placeholder {
+  opacity: 0;
+}
+.formLocation__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 30px 100px 30px;
+  background: #F6F6F6;
+  position: relative;
+}
+.formLocation__body h2 {
+  margin: 10px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+@media only screen and (min-width: 1024px) {
+  .formLocation__body h2 {
+    font-size: 2.5rem;
+  }
+}
+.formLocation__body > p {
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: #353535;
+}
+
+.operating {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.operating__container {
+  padding: 48px 0px 68px 0px;
+}
+.operating__container h2 {
+  font-weight: 700;
+}
+@media only screen and (min-width: 1024px) {
+  .operating__container {
+    width: 90vw;
+    max-width: 1080px;
+  }
+}
+.operating__container__content {
+  margin-top: 25px;
+  display: grid;
+  gap: 25px;
+}
+@media only screen and (min-width: 1024px) {
+  .operating__container__content {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.restaurants {
+  background: #F6F6F6;
+}
+.restaurants__container {
+  padding: 54px 0px 66px 0px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  justify-items: start;
+  margin: auto;
+  width: 90vw;
+  max-width: 490px;
+}
+@media only screen and (min-width: 1024px) {
+  .restaurants__container {
+    max-width: 1080px;
+  }
+}
+.restaurants__container h2 {
+  align-self: start;
+}
+.restaurants__container__content {
+  margin-top: 20px;
+  display: grid;
+  gap: 18px;
+  width: 90vw;
+  max-width: 490px;
+}
+@media only screen and (min-width: 1024px) {
+  .restaurants__container__content {
+    max-width: 1080px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 100px;
+    grid-row-gap: 50px;
+  }
+}
+
+.footer {
+  background: #353535;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+.footer a {
+  color: #FFFFFF;
+}
+.footer__container {
+  padding: 25px 0;
+  display: grid;
+  gap: 7px;
+  width: 90vw;
+  max-width: 490px;
+}
+@media only screen and (min-width: 1024px) {
+  .footer__container {
+    display: flex;
+    justify-content: end;
+    align-items: last baseline;
+    width: 100%;
+    max-width: none;
+    padding: 30px 50px;
+    height: 114px;
+    gap: 30px;
+  }
+}
+.footer__container i {
+  color: #FFFFFF;
+  width: 25px;
+}
+.footer__container h2 {
+  color: #FFFFFF;
+  font-family: "Shrikhand", serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1024px) {
+  .footer__container h2 {
+    order: 3;
+    margin: 0;
+    margin-left: 30px;
+  }
+}
+.footer__container .proposeAndBecomeAPartner {
+  display: grid;
+  gap: 7px;
+}
+@media only screen and (min-width: 1024px) {
+  .footer__container .proposeAndBecomeAPartner {
+    display: flex;
+    order: 1;
+    gap: 10px;
+  }
+}
+.footer__container .legalNoticeAndContact {
+  display: grid;
+  gap: 7px;
+}
+@media only screen and (min-width: 1024px) {
+  .footer__container .legalNoticeAndContact {
+    display: flex;
+    order: 2;
+    gap: 10px;
+  }
+}
+
+.menu_header img {
+  width: 100%;
+  height: 36vh;
+  object-fit: cover;
+  object-position: 50% 60%;
+  position: absolute;
+  z-index: -1;
+}
+
+.menu_body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1055px;
+  background: #F6F6F6;
+  margin-top: 32vh;
+  border-radius: 40px 40px 0 0;
+  padding: 32px 13px 40px;
+  overflow: hidden;
+}
+@media only screen and (max-width: 425px) {
+  .menu_body {
+    margin-top: 29vh;
+  }
+}
+.menu_body_container_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+@media only screen and (min-width: 426px) {
+  .menu_body_container_header {
+    justify-content: center;
+  }
+}
+.menu_body_container_header h1 {
+  font-family: "Shrikhand", serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+.menu_body_container_header .heart input[type=checkbox] + label .drape {
+  background-color: #F6F6F6;
+}
+.menu_body_container_footer {
+  position: relative;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .body_container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  box-shadow: 0px 2px 60px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+body .body_container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  box-shadow: 0px 2px 60px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+/*# sourceMappingURL=style.css.map */

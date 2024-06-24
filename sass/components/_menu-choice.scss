@@ -1,0 +1,215 @@
+// menu choice
+
+.menu_body_container_body-starters-dishes-desserts {
+    // variables animations
+    $animation_speed_check: 0.3s;
+    $animation_speed_plat: 0.8s;
+    $delay_animation_plat: 0.1s;
+    $delay_animation_plat_gap: 0.4s;
+
+    fieldset {
+        margin: auto;
+        margin-top: 40px;
+        border-radius: 20px;
+        padding-bottom: 10px;
+        display: grid;
+        gap: 10px;
+        width: 100%;
+        max-width: 634px;
+
+        legend {
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 24px;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 1.5rem;
+                height: 0.2rem;
+                width: 2.5rem;
+                background-color: $color_bg_Green;
+            }
+        }
+
+        .plats {
+            display: flex;
+            justify-content: center;
+            border-radius: 20px;
+            overflow: hidden;
+            gap: 20px;
+            width: 100%;
+            max-width: 634px;
+            user-select: none;
+            box-shadow: 0px 4.01149px 15.0431px 0px rgba(0, 0, 0, 0.10);
+
+            // invisible and move left when animation starts
+            transform: translateX(-600px);
+            opacity: 0;
+
+            &:hover {
+                box-shadow: 0px 4.01149px 15.0431px 0px rgba(0, 0, 0, 0.20);
+            }
+
+            // hover check suggested
+            input[type=radio]:hover+label {
+                .part_right {
+                    transform: translateX(-15px);
+                    margin-left: 15px;
+                }
+            }
+
+            // dishes checked
+            input[type=radio]:checked+label {
+                .part_right {
+                    transform: translateX(-100px);
+                    margin-left: 100px;
+
+                    svg {
+                        transform: rotate(0deg);
+                    }
+                }
+            }
+
+            // hidde radio
+            input[type=radio] {
+                display: none;
+            }
+
+
+            label {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                border-radius: 20px;
+                background-color: $color_bg_White;
+                overflow: hidden;
+                font-family: $Font_text;
+
+                .part_left {
+                    min-width: 0;
+                    padding: 10px 0 10px 15px;
+
+                    span {
+                        display: block;
+                        margin: 5px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        // dishe title
+                        &:first-child {
+                            font-size: 1em;
+                            font-weight: 800;
+                        }
+
+                        // dishe description
+                        &:last-child {
+                            font-size: 0.9em;
+                            font-weight: 300;
+                        }
+                    }
+                }
+
+                .part_right {
+                    height: 100%;
+                    @include flex-end;
+                    position: relative;
+                    transition: ease-in-out $animation_speed_check;
+
+                    span.price {
+                        color: $color_text_grey;
+                        font-weight: 700;
+                        margin-bottom: 15px;
+                        margin-right: 15px;
+                    }
+
+                    .selected {
+                        @include grid-center;
+                        background-color: $color_bg_Green;
+                        position: absolute;
+                        border-radius: 0 20px 20px 0;
+                        width: 100px;
+                        height: 100%;
+                        // start not selected hidden
+                        right: -100px;
+
+                        svg {
+                            font-size: 2rem;
+                            fill: $color_bg_White;
+                            transform: rotate(180deg);
+                            transition: ease-in-out $animation_speed_check;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // The dishes arrive from the right with opacity 0, then take up their positions in the center with opacity 1 after a bounce.
+    @keyframes anim-arrival-of-dishes {
+        0% {
+            animation-timing-function: ease-in-out;
+            opacity: 0;
+            transform: translateX(-600px);
+        }
+
+        90% {
+            animation-timing-function: ease-out;
+            transform: translateX(0);
+        }
+
+        95% {
+            animation-timing-function: ease-in;
+            transform: translateX(-8px);
+        }
+
+        100% {
+            animation-timing-function: ease-out;
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    #entrée_1 {
+        animation: anim-arrival-of-dishes $animation_speed_plat ease-in-out $delay_animation_plat 1 normal forwards;
+    }
+
+    #entrée_2 {
+        animation: anim-arrival-of-dishes $animation_speed_plat ease-in-out calc($delay_animation_plat*2) 1 normal forwards;
+    }
+
+    #entrée_3 {
+        animation: anim-arrival-of-dishes $animation_speed_plat ease-in-out calc($delay_animation_plat*3) 1 normal forwards;
+    }
+
+    #entrée_4 {
+        animation: anim-arrival-of-dishes $animation_speed_plat ease-in-out calc($delay_animation_plat*4) 1 normal forwards;
+    }
+
+    #plat_1 {
+        animation: anim-arrival-of-dishes $animation_speed_plat ease-in-out calc($delay_animation_plat*4 + $delay_animation_plat_gap) 1 normal forwards;
+    }
+
+    #plat_2 {
+        animation: anim-arrival-of-dishes $animation_speed_plat ease-in-out calc($delay_animation_plat*5 + $delay_animation_plat_gap) 1 normal forwards;
+    }
+
+    #plat_3 {
+        animation: anim-arrival-of-dishes $animation_speed_plat ease-in-out calc($delay_animation_plat*6 + $delay_animation_plat_gap) 1 normal forwards;
+    }
+
+    #dessert_1 {
+        animation: anim-arrival-of-dishes $animation_speed_plat ease-in-out calc($delay_animation_plat*8 + $delay_animation_plat_gap*2) 1 normal forwards;
+    }
+
+    #dessert_2 {
+        animation: anim-arrival-of-dishes $animation_speed_plat ease-in-out calc($delay_animation_plat*9 + $delay_animation_plat_gap*2) 1 normal forwards;
+    }
+
+    #dessert_3 {
+        animation: anim-arrival-of-dishes $animation_speed_plat ease-in-out calc($delay_animation_plat*10 + $delay_animation_plat_gap*2) 1 normal forwards;
+    }
+}

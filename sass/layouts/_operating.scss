@@ -1,0 +1,27 @@
+.operating {
+    @include grid-center;
+
+    &__container {
+        padding: 48px 0px 68px 0px;
+
+        h2 {
+            font-weight: 700;
+        }
+
+        @media only screen and (min-width: 1024px) {
+            width: 90vw;
+            max-width: 1080px;
+        }
+
+        &__content {
+            margin-top: 25px;
+            display: grid;
+            gap: 25px;
+
+            @media only screen and (min-width: 1024px) {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+    }
+}
